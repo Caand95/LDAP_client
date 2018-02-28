@@ -1,0 +1,7 @@
+C:\Users\zbccaand49\source\repos\LDAP\LDAP\bin\Debug\LDAP.exe.config
+C:\Users\zbccaand49\source\repos\LDAP\LDAP\bin\Debug\LDAP.exe
+C:\Users\zbccaand49\source\repos\LDAP\LDAP\bin\Debug\LDAP.pdb
+C:\Users\zbccaand49\source\repos\LDAP\LDAP\obj\Debug\LDAP.csprojResolveAssemblyReference.cache
+C:\Users\zbccaand49\source\repos\LDAP\LDAP\obj\Debug\LDAP.csproj.CoreCompileInputs.cache
+C:\Users\zbccaand49\source\repos\LDAP\LDAP\obj\Debug\LDAP.exe
+C:\Users\zbccaand49\source\repos\LDAP\LDAP\obj\Debug\LDAP.pdb
