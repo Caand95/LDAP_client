@@ -18,6 +18,7 @@ namespace LDAP
         {
             this.connection = connection;
             InitializeComponent();
+            label1.Text = connection.Credentials.Domain;
             listView1.View = View.Details;
             listView1.GridLines = true;
             listView1.FullRowSelect = true;
@@ -47,6 +48,32 @@ namespace LDAP
 
             }
             
+        }
+
+        private void GetView(string search, OrganizationalUnit directory, TreeNodeCollection parentNode)
+        {
+            foreach (DirectoryEntity entity in directory.entries)
+            {
+                string prefix = "";
+                if (entity.GetType() == typeof(OrganizationalUnit))
+                    prefix = "OU";
+                else if (entity.GetType() == typeof(User))
+                    prefix = "User";
+                else if (entity.GetType() == typeof(Group))
+                    prefix = "Group";
+
+                if(entity.Name.ToLower().Contains(search))
+                {
+                    TreeNode node = parentNode.Add(prefix + " - " + entity.Name);
+                    node.Tag = entity;
+                }
+                if (entity.GetType() == typeof(OrganizationalUnit))
+                {
+                    GetView(search, (OrganizationalUnit)entity, parentNode);
+                }
+
+            }
+
         }
 
         private List<Control> customControls = new List<Control>();
@@ -95,6 +122,14 @@ namespace LDAP
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            treeView1.Nodes.Clear();
+            if (textBox1.Text.Replace(' ', '\0').Length < 1)
+                GetView(DirectoryTree.GetRoot(connection), treeView1.Nodes);
+            else GetView(textBox1.Text, DirectoryTree.GetRoot(connection), treeView1.Nodes);
         }
     }
 }
