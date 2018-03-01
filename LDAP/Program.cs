@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.DirectoryServices.Protocols;
+using System.Windows.Forms;
 
 namespace LDAP
 {
@@ -22,6 +23,11 @@ namespace LDAP
                 };
 
         static void Main(string[] args)
+        {
+            Application.Run(new FormConnect());
+        }
+
+        static void OldMain()
         {
             //INIT();
             Ldap ldap = new Ldap();

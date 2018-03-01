@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace LDAP
 {
@@ -25,6 +26,22 @@ namespace LDAP
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Connection connection = new Connection(domainName.Text, username.Text, password.Text);
+                this.Hide();
+                Browser browser = new Browser(connection);
+                new Thread(() => { Application.Run(browser); }).Start();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Failed to connect to " + domainName.Text + "\nError: " + ex, "Connection Error!");
+            }
+            
         }
     }
 }
