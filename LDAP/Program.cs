@@ -27,7 +27,7 @@ namespace LDAP
             Application.Run(new FormConnect());
         }
 
-        static void OldMain()
+        static void OldMain(string[] args)
         {
             //INIT();
             Ldap ldap = new Ldap();
