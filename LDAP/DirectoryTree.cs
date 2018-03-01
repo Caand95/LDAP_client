@@ -47,7 +47,6 @@ namespace LDAP
                 else if (typeName.StartsWith("user"))
                 {
                     ou.entries.Add(new User(ou, entry.Properties, null));
-
                 }
                 else if (typeName.StartsWith("organization"))
                 {
