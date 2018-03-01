@@ -56,7 +56,9 @@
     <Compile Include="Connection.cs" />
     <Compile Include="DirectoryEntity.cs" />
     <Compile Include="DirectoryTree.cs" />
-    <Compile Include="EditUser.cs" />
+    <Compile Include="EditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="EditUser.Designer.cs">
       <DependentUpon>EditUser.cs</DependentUpon>
     </Compile>

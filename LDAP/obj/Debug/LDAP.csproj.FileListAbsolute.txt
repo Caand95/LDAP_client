@@ -28,3 +28,14 @@ C:\Users\zbcisand3\Documents\GitHub\LDAP_client\LDAP\obj\Debug\LDAP.FormConnect.
 C:\Users\zbcisand3\Documents\GitHub\LDAP_client\LDAP\obj\Debug\LDAP.csproj.GenerateResource.Cache
 >>>>>>> 9e22a2856978b3ba59b577941d9431bf98f0e732
 C:\Users\zbccaand49\source\repos\LDAP_CLIENT\LDAP\obj\Debug\LDAP.Browser.resources
+C:\Users\zbcchxol1\source\repos\LDAP_client\LDAP\obj\Debug\LDAP.csprojResolveAssemblyReference.cache
+C:\Users\zbcchxol1\source\repos\LDAP_client\LDAP\obj\Debug\LDAP.Browser.resources
+C:\Users\zbcchxol1\source\repos\LDAP_client\LDAP\obj\Debug\LDAP.EditUser.resources
+C:\Users\zbcchxol1\source\repos\LDAP_client\LDAP\obj\Debug\LDAP.FormConnect.resources
+C:\Users\zbcchxol1\source\repos\LDAP_client\LDAP\obj\Debug\LDAP.csproj.GenerateResource.Cache
+C:\Users\zbcchxol1\source\repos\LDAP_client\LDAP\obj\Debug\LDAP.csproj.CoreCompileInputs.cache
+C:\Users\zbcchxol1\source\repos\LDAP_client\LDAP\obj\Debug\LDAP.exe
+C:\Users\zbcchxol1\source\repos\LDAP_client\LDAP\obj\Debug\LDAP.pdb
+C:\Users\zbcchxol1\source\repos\LDAP_client\LDAP\bin\Debug\LDAP.exe.config
+C:\Users\zbcchxol1\source\repos\LDAP_client\LDAP\bin\Debug\LDAP.exe
+C:\Users\zbcchxol1\source\repos\LDAP_client\LDAP\bin\Debug\LDAP.pdb

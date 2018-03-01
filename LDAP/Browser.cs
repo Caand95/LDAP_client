@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace LDAP
 {
@@ -24,6 +25,7 @@ namespace LDAP
             listView1.FullRowSelect = true;
 
             GetView(DirectoryTree.GetRoot(connection), treeView1.Nodes);
+            treeView1.NodeMouseDoubleClick += EditUser;
         }
 
         private void GetView(OrganizationalUnit directory, TreeNodeCollection parentNode)
@@ -159,6 +161,11 @@ namespace LDAP
             if (textBox1.Text.Replace(' ', '\0').Length < 1)
                 GetView(DirectoryTree.GetRoot(connection), treeView1.Nodes);
             else GetView(textBox1.Text, DirectoryTree.GetRoot(connection), treeView1.Nodes);
+        }
+
+        private void EditUser(object sender, TreeNodeMouseClickEventArgs treeNodeMouseClickEventArgs)
+        {
+            new Thread(() => { Application.Run(new EditUser((User)treeNodeMouseClickEventArgs.Node.Tag)); }).Start();
         }
     }
 }

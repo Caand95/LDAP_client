@@ -15,7 +15,7 @@ namespace LDAP
         public EditUser(User user)
         {
             InitializeComponent();
-            username.Text = user.Username;
+            username.Text = user.Properties["sAMAccountName"].ToString();
             Path.Text = user.Path;
             FullName.Text = user.Name;
             foreach(Group group in user.Groups)
