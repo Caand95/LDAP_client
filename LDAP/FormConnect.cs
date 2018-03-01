@@ -33,7 +33,6 @@ namespace LDAP
             try
             {
                 Connection connection = new Connection(domainName.Text, username.Text, password.Text);
-                Directory.GetRoot(connection);
                 this.Hide();
                 Browser browser = new Browser(connection);
                 new Thread(() => { Application.Run(browser); }).Start();

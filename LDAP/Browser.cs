@@ -18,34 +18,81 @@ namespace LDAP
         {
             this.connection = connection;
             InitializeComponent();
+            listView1.View = View.Details;
+            listView1.GridLines = true;
+            listView1.FullRowSelect = true;
+            listView1.CheckBoxes = true;
 
-            GetView(DirectoryTree.GetRoot(connection), null, treeView1.Nodes);
+            GetView(DirectoryTree.GetRoot(connection), treeView1.Nodes);
         }
 
-        private void GetView(OrganizationalUnit directory, TreeNode parentNode, TreeNodeCollection nodeCollection)
+        private void GetView(OrganizationalUnit directory, TreeNodeCollection parentNode)
         {
             foreach(DirectoryEntity entity in directory.entries)
             {
-                if (parentNode == null)
+                string prefix = "";
+                if (entity.GetType() == typeof(OrganizationalUnit))
+                    prefix = "OU";
+                else if (entity.GetType() == typeof(User))
+                    prefix = "User";
+                else if (entity.GetType() == typeof(Group))
+                    prefix = "Group";
+
+                TreeNode node = parentNode.Add(prefix + " - " + entity.Name);
+                node.Tag = entity;
+                if (entity.GetType() == typeof(OrganizationalUnit))
                 {
-                    if (entity.GetType() == typeof(OrganizationalUnit))
-                    {
-                        TreeNode newParentNode = nodeCollection.Add(entity.Name);
-                        GetView((OrganizationalUnit)entity, newParentNode, nodeCollection);
-                    }
-                    else nodeCollection.Add(entity.Name);
+                    GetView((OrganizationalUnit)entity, node.Nodes);
                 }
-                else
-                {
-                    string prefix = "";
-                    if (entity.GetType() == typeof(OrganizationalUnit))
-                        parentNode.Nodes.Add(entity.Name);
-                }
+
             }
             
         }
 
+        private List<Control> customControls = new List<Control>();
+
+        private Label CreateLabel(int x, int y, string text)
+        {
+            Label label = new Label();
+            label.AutoSize = true;
+            label.Location = new System.Drawing.Point(x, y);
+            label.Name = text;
+            label.Size = new System.Drawing.Size(46, 17);
+            label.TabIndex = 0;
+            label.Text = text;
+            this.Controls.Add(label);
+            customControls.Add(label);
+            return label;
+        }
+
+        private void AddText(string name, string value)
+        {
+            ListViewItem lvi = new ListViewItem(new string[] { name, value});
+            this.listView1.Items.Add(lvi);
+        }
+
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if(e.Action == TreeViewAction.ByMouse)
+            {
+                for(int i = 0; i < customControls.Count; i++)
+                {
+                    this.Controls.Remove(customControls[i]);
+                }
+                customControls.Clear();
+                DirectoryEntity entity = ((DirectoryEntity)e.Node.Tag);
+                this.listView1.Clear();
+                this.listView1.Columns.Add("Property");
+                this.listView1.Columns.Add("Value", 300);
+                AddText("Name", entity.Name);
+                AddText("Path", entity.Path);
+                //Label name = CreateLabel(50, 30, entity.Name);
+                //Label path = CreateLabel(50, 50, entity.Path);
+
+            }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
