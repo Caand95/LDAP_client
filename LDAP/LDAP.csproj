@@ -56,6 +56,10 @@
     <Compile Include="Connection.cs" />
     <Compile Include="DirectoryEntity.cs" />
     <Compile Include="DirectoryTree.cs" />
+    <Compile Include="EditUser.cs" />
+    <Compile Include="EditUser.Designer.cs">
+      <DependentUpon>EditUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormConnect.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +79,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditUser.resx">
+      <DependentUpon>EditUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormConnect.resx">
       <DependentUpon>FormConnect.cs</DependentUpon>
