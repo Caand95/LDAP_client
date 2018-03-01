@@ -27,3 +27,4 @@ C:\Users\zbcisand3\Documents\GitHub\LDAP_client\LDAP\obj\Debug\LDAP.Browser.reso
 C:\Users\zbcisand3\Documents\GitHub\LDAP_client\LDAP\obj\Debug\LDAP.FormConnect.resources
 C:\Users\zbcisand3\Documents\GitHub\LDAP_client\LDAP\obj\Debug\LDAP.csproj.GenerateResource.Cache
 >>>>>>> 9e22a2856978b3ba59b577941d9431bf98f0e732
+C:\Users\zbccaand49\source\repos\LDAP_CLIENT\LDAP\obj\Debug\LDAP.Browser.resources
