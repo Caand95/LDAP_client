@@ -43,6 +43,7 @@
             this.domainName.Name = "domainName";
             this.domainName.Size = new System.Drawing.Size(158, 22);
             this.domainName.TabIndex = 0;
+            this.domainName.Text = "Team-Soccer.local";
             // 
             // username
             // 
@@ -50,6 +51,7 @@
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(128, 22);
             this.username.TabIndex = 1;
+            this.username.Text = "Administrator";
             this.username.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // password
@@ -59,6 +61,7 @@
             this.password.PasswordChar = '•';
             this.password.Size = new System.Drawing.Size(128, 22);
             this.password.TabIndex = 2;
+            this.password.Text = "Team Soccer1";
             this.password.UseSystemPasswordChar = true;
             // 
             // label1

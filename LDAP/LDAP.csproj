@@ -54,15 +54,20 @@
       <DependentUpon>Browser.cs</DependentUpon>
     </Compile>
     <Compile Include="Connection.cs" />
+    <Compile Include="DirectoryEntity.cs" />
+    <Compile Include="DirectoryTree.cs" />
     <Compile Include="FormConnect.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormConnect.Designer.cs">
       <DependentUpon>FormConnect.cs</DependentUpon>
     </Compile>
+    <Compile Include="Group.cs" />
     <Compile Include="Ldap.cs" />
+    <Compile Include="OrganizationalUnit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

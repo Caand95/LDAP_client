@@ -27,14 +27,30 @@ namespace LDAP
             ldapConnection.Bind();
         }
 
-        public void SendRequest()
+        public DirectoryResponse SendRequest(DirectoryRequest request)
         {
-            
+            return ldapConnection.SendRequest(request);
         }
 
         public void Stop()
         {
             ldapConnection.Dispose();
+        }
+
+        public void Reestablish()
+        {
+            ldapConnection.Bind();
+        }
+
+        public string GetDistinguishedName()
+        {
+            string result = "";
+            string[] dotSplitted = credentials.Domain.Split('.');
+            for(int i = 0; i < dotSplitted.Length; i++)
+            {
+                result += "DC=" + dotSplitted[i] + (i < dotSplitted.Length - 1 ? "," : "");
+            }
+            return result;
         }
     }
 }
