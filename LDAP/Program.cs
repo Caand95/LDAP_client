@@ -27,7 +27,7 @@ namespace LDAP
             Application.Run(new FormConnect());
         }
 
-        static void OldMain()
+        static void OldMain(string[] args)
         {
             //INIT();
             Ldap ldap = new Ldap();
@@ -38,6 +38,7 @@ namespace LDAP
             string user;
             string pass;
             string userdn;
+            string newdn;
             ldap.Connect();
 
             string menuint;
@@ -63,6 +64,16 @@ namespace LDAP
                         pass = Input("Please input password: ");
                         if (ldap.AddUser(user, pass)) {
                             Output("User added");
+                        }
+                        else { Output("error\nPlease try again"); }
+                        break;
+                    case "3":
+                        user = Input("please input username to move: ");
+                        userdn = Input("please input the current user dn: ");
+                        newdn = Input("Please intput the new user dn: ");
+                        if(ldap.MoveUser(user, userdn, newdn))
+                        {
+                            Output(user + " moved from " + userdn + " to " + newdn);
                         }
                         else { Output("error\nPlease try again"); }
                         break;

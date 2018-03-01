@@ -19,6 +19,7 @@ namespace LDAP
         private SearchResponse response;
         private SearchRequest request;
         private AddRequest addrequest;
+        private ModifyDNRequest moverequest;
         private DeleteRequest delrequest;
 
         public void Init()
@@ -62,6 +63,24 @@ namespace LDAP
             return true;
         }
 
+        public bool MoveUser(string username, string olddn, string newdn)
+        {
+            if (username != "Administrator")
+            {
+                try
+                {
+                    moverequest = new ModifyDNRequest(olddn,newdn,username);
+                    this.connection.SendRequest(moverequest);
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e.Message);
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public bool DeleteUser(string username, string userdn)
         {
             if (username != "Administrator") {
@@ -101,7 +120,7 @@ namespace LDAP
                 Debug.WriteLine("Making request");
                 request = new SearchRequest("cn=users,dc=team-soccer,dc=local", "(objectClass=user)", System.DirectoryServices.Protocols.SearchScope.Subtree, null);
                 Debug.WriteLine("Getting Response");
-                response = (SearchResponse)connection.SendRequest(request);
+                response = (SearchResponse)this.connection.SendRequest(request);
             }
             catch (Exception)
             {
@@ -112,7 +131,7 @@ namespace LDAP
 
         public void Clean()
         {
-            connection.Dispose();
+            this.connection.Dispose();
         }
 
     }
