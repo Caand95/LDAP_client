@@ -12,3 +12,12 @@ C:\Users\zbcisand3\Documents\GitHub\LDAP_client\LDAP\obj\Debug\LDAP.csprojResolv
 C:\Users\zbcisand3\Documents\GitHub\LDAP_client\LDAP\obj\Debug\LDAP.csproj.CoreCompileInputs.cache
 C:\Users\zbcisand3\Documents\GitHub\LDAP_client\LDAP\obj\Debug\LDAP.exe
 C:\Users\zbcisand3\Documents\GitHub\LDAP_client\LDAP\obj\Debug\LDAP.pdb
+C:\Users\zbccaand49\source\repos\LDAP_CLIENT\LDAP\obj\Debug\LDAP.csprojResolveAssemblyReference.cache
+C:\Users\zbccaand49\source\repos\LDAP_CLIENT\LDAP\obj\Debug\LDAP.FormConnect.resources
+C:\Users\zbccaand49\source\repos\LDAP_CLIENT\LDAP\obj\Debug\LDAP.csproj.GenerateResource.Cache
+C:\Users\zbccaand49\source\repos\LDAP_CLIENT\LDAP\obj\Debug\LDAP.csproj.CoreCompileInputs.cache
+C:\Users\zbccaand49\source\repos\LDAP_CLIENT\LDAP\obj\Debug\LDAP.exe
+C:\Users\zbccaand49\source\repos\LDAP_CLIENT\LDAP\obj\Debug\LDAP.pdb
+C:\Users\zbccaand49\source\repos\LDAP_CLIENT\LDAP\bin\Debug\LDAP.exe.config
+C:\Users\zbccaand49\source\repos\LDAP_CLIENT\LDAP\bin\Debug\LDAP.exe
+C:\Users\zbccaand49\source\repos\LDAP_CLIENT\LDAP\bin\Debug\LDAP.pdb
