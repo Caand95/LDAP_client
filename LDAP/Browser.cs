@@ -22,7 +22,6 @@ namespace LDAP
             listView1.View = View.Details;
             listView1.GridLines = true;
             listView1.FullRowSelect = true;
-            listView1.CheckBoxes = true;
 
             GetView(DirectoryTree.GetRoot(connection), treeView1.Nodes);
         }
@@ -52,6 +51,7 @@ namespace LDAP
 
         private void GetView(string search, OrganizationalUnit directory, TreeNodeCollection parentNode)
         {
+            string comboText = comboBox1.Text.ToLower();
             foreach (DirectoryEntity entity in directory.entries)
             {
                 string prefix = "";
@@ -62,7 +62,23 @@ namespace LDAP
                 else if (entity.GetType() == typeof(Group))
                     prefix = "Group";
 
-                if(entity.Name.ToLower().Contains(search))
+                bool isProperGroup = false;
+
+                if(comboText.Equals("all"))
+                {
+                    isProperGroup = true;
+                }
+                else
+                {
+                    if(comboText.Substring(0, comboText.Length - 1).Equals(prefix.ToLower()))
+                    {
+                        isProperGroup = true;
+                    }
+                }
+
+
+
+                if(entity.Name.ToLower().Contains(search) && isProperGroup)
                 {
                     TreeNode node = parentNode.Add(prefix + " - " + entity.Name);
                     node.Tag = entity;
@@ -109,12 +125,25 @@ namespace LDAP
                 customControls.Clear();
                 DirectoryEntity entity = ((DirectoryEntity)e.Node.Tag);
                 this.listView1.Clear();
-                this.listView1.Columns.Add("Property");
+                this.listView1.Columns.Add("Property", 100);
                 this.listView1.Columns.Add("Value", 300);
+                /*
                 AddText("Name", entity.Name);
                 AddText("Path", entity.Path);
-                //Label name = CreateLabel(50, 30, entity.Name);
-                //Label path = CreateLabel(50, 50, entity.Path);
+                */
+                foreach(string property in entity.Properties.PropertyNames)
+                {
+                    string text = "";
+                    object value = entity.Properties[property].Value;
+                    if (value.GetType().IsArray)
+                    {
+                        Array array = (Array)value;
+                        for (int i = 0; i < array.Length; i++)
+                            text += array.GetValue(i).ToString() + (i < array.Length - 1 ? "," : "");
+                    }
+                    else text = "" + value;
+                    AddText(property, text);
+                }
 
             }
         }

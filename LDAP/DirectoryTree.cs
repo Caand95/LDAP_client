@@ -17,8 +17,6 @@ namespace LDAP
             Console.WriteLine("Password: " + connection.Credentials.Password);
             DirectoryEntry entry = new DirectoryEntry("LDAP://" + connection.Credentials.Domain, connection.Credentials.UserName, connection.Credentials.Password);
             OrganizationalUnit ou = Version2(null, entry);
-            PrintOU(ou);
-            
             return ou;
         }
 
@@ -35,24 +33,25 @@ namespace LDAP
         }
         private static OrganizationalUnit Version2(OrganizationalUnit parentEntity, DirectoryEntry parent)
         {
-            OrganizationalUnit ou = new OrganizationalUnit(parentEntity, parent.Properties["name"][0].ToString(), parent.Path);
+            OrganizationalUnit ou = new OrganizationalUnit(parentEntity, parent.Properties);
             foreach (DirectoryEntry entry in parent.Children)
             {
+                string name = parent.Properties["name"][0].ToString();
                 string typeName = entry.SchemaEntry.Name;
 
                 if (typeName.StartsWith("group"))
                 {
-                    ou.entries.Add(new Group(ou, entry.Name, entry.Path));
+                    ou.entries.Add(new Group(ou, entry.Properties));
 
                 }
                 else if (typeName.StartsWith("user"))
                 {
-                    ou.entries.Add(new User(ou, entry.Name, entry.Path, (string)entry.Properties["sAMAccountName"][0], null));
+                    ou.entries.Add(new User(ou, entry.Properties, null));
 
                 }
                 else if (typeName.StartsWith("organization"))
                 {
-                    ou.entries.Add(Version2(new OrganizationalUnit(ou, entry.Name, entry.Path), entry));
+                    ou.entries.Add(Version2(new OrganizationalUnit(ou, entry.Properties), entry));
                 }
             }
             return ou;

@@ -12,14 +12,14 @@ namespace LDAP
     {
         public List<DirectoryEntity> entries;
 
-        public OrganizationalUnit(DirectoryEntity parent, string name, string path) : base(parent, name, path)
+        public OrganizationalUnit(DirectoryEntity parent, PropertyCollection properties) : base(parent, properties)
         {
             this.entries = new List<DirectoryEntity>();
         }
 
         public void AddUser(Connection connection, User user)
         {
-         
+            
         }
 
     }
