@@ -25,12 +25,21 @@ namespace LDAP
             InitializeComponent();
 
             //Set the values of the fields
-            HeadLine.Text = "Edit " + user.Name;
-            username.Text = user.Properties["sAMAccountName"].Value.ToString();
-            password.Text = "********";
-            Path.Text = user.Path;
-            FirstName.Text = user.Properties["givenName"].Value.ToString();
-            LastName.Text = user.Properties["sn"].Value.ToString();
+            try
+            {
+                HeadLine.Text = "Edit " + user.Name;
+                username.Text = user.Properties["sAMAccountName"].Value.ToString();
+                password.Text = "********";
+                Path.Text = user.Path;
+                FirstName.Text = user.Properties["givenName"].Value.ToString();
+                LastName.Text = user.Properties["sn"].Value.ToString();
+            }
+            catch (Exception exception)
+            {
+
+                MessageBox.Show("Error loading user");
+                this.Hide();
+            }
 
             //Check if user has member of and if so add them to the treeview
             if (user.Properties["memberOf"].Count > 0)

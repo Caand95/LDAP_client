@@ -26,13 +26,10 @@ namespace LDAP
             listView1.GridLines = true;
             listView1.FullRowSelect = true;
 
-<<<<<<< HEAD
-            GetView(DirectoryTree.GetRoot(connection), treeView1.Nodes);
+            GetView(Directory.GetRoot(connection), treeView1.Nodes);
             treeView1.NodeMouseDoubleClick += EditUser;
-=======
             //Adds initial content to the tree view from Active Directory
             GetView(Directory.GetRoot(connection), treeView1.Nodes);
->>>>>>> b8d6a0b716e60c2e987b5dd689b6db8265774a39
         }
 
         //Fills the tree-view with the directory items recursively

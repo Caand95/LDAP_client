@@ -70,14 +70,11 @@
             // 
             // treeView1
             // 
-<<<<<<< HEAD
             this.treeView1.Location = new System.Drawing.Point(12, 33);
             this.treeView1.Margin = new System.Windows.Forms.Padding(2);
-=======
             this.treeView1.ImageIndex = 0;
             this.treeView1.ImageList = this.imageList1;
             this.treeView1.Location = new System.Drawing.Point(16, 41);
->>>>>>> b8d6a0b716e60c2e987b5dd689b6db8265774a39
             this.treeView1.Name = "treeView1";
             this.treeView1.SelectedImageIndex = 0;
             this.treeView1.Size = new System.Drawing.Size(187, 533);

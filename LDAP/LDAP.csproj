@@ -64,7 +64,6 @@
     </Compile>
     <Compile Include="Connection.cs" />
     <Compile Include="DirectoryEntity.cs" />
-    <Compile Include="DirectoryTree.cs" />
     <Compile Include="EditUser.cs">
       <SubType>Form</SubType>
     </Compile>
