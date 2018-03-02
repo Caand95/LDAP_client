@@ -10,28 +10,17 @@ namespace LDAP
 {
     public class DirectoryTree
     {
+        //Gets the top OU from the Domain
         public static OrganizationalUnit GetRoot(Connection connection)
         {
-            Console.WriteLine("Domain Name: " + connection.Credentials.Domain);
-            Console.WriteLine("Username: " + connection.Credentials.UserName);
-            Console.WriteLine("Password: " + connection.Credentials.Password);
             DirectoryEntry entry = new DirectoryEntry("LDAP://" + connection.Credentials.Domain, connection.Credentials.UserName, connection.Credentials.Password);
-            OrganizationalUnit ou = Version2(null, entry);
+            OrganizationalUnit ou = GetDirectory(null, entry);
             return ou;
         }
 
-        private static void PrintOU(OrganizationalUnit ou)
-        {
-            Console.WriteLine("OU");
-            for (int i = 0; i < ou.entries.Count; i++)
-            {
-                DirectoryEntity entity = ou.entries[i];
-                Console.WriteLine(entity.GetType() + " - " + entity.Name);
-                if (entity.GetType() == typeof(OrganizationalUnit))
-                    PrintOU((OrganizationalUnit)entity);
-            }
-        }
-        private static OrganizationalUnit Version2(OrganizationalUnit parentEntity, DirectoryEntry parent)
+        /*Iterates over the whole Active Directory starting from the parent and loops recursively
+            It initializes an OU and adds users/groups/OU*/
+        private static OrganizationalUnit GetDirectory(OrganizationalUnit parentEntity, DirectoryEntry parent)
         {
             OrganizationalUnit ou = new OrganizationalUnit(parentEntity, parent.Properties);
             foreach (DirectoryEntry entry in parent.Children)
@@ -50,7 +39,7 @@ namespace LDAP
                 }
                 else if (typeName.StartsWith("organization"))
                 {
-                    ou.entries.Add(Version2(new OrganizationalUnit(ou, entry.Properties), entry));
+                    ou.entries.Add(GetDirectory(new OrganizationalUnit(ou, entry.Properties), entry));
                 }
             }
             return ou;
