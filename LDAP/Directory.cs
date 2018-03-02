@@ -8,7 +8,7 @@ using System.DirectoryServices.Protocols;
 
 namespace LDAP
 {
-    public class DirectoryTree
+    public class Directory
     {
         //Gets the top OU from the Domain
         public static OrganizationalUnit GetRoot(Connection connection)

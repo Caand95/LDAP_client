@@ -26,7 +26,7 @@ namespace LDAP
             listView1.FullRowSelect = true;
 
             //Adds initial content to the tree view from Active Directory
-            GetView(DirectoryTree.GetRoot(connection), treeView1.Nodes);
+            GetView(Directory.GetRoot(connection), treeView1.Nodes);
         }
 
         //Fills the tree-view with the directory items recursively
@@ -157,8 +157,8 @@ namespace LDAP
         {
             treeView1.Nodes.Clear();
             if (textBox1.Text.Replace(' ', '\0').Length < 1)
-                GetView(DirectoryTree.GetRoot(connection), treeView1.Nodes);
-            else GetView(textBox1.Text, DirectoryTree.GetRoot(connection), treeView1.Nodes);
+                GetView(Directory.GetRoot(connection), treeView1.Nodes);
+            else GetView(textBox1.Text, Directory.GetRoot(connection), treeView1.Nodes);
         }
     }
 }

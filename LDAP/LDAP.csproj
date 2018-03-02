@@ -55,7 +55,7 @@
     </Compile>
     <Compile Include="Connection.cs" />
     <Compile Include="DirectoryEntity.cs" />
-    <Compile Include="DirectoryTree.cs" />
+    <Compile Include="Directory.cs" />
     <Compile Include="FormConnect.cs">
       <SubType>Form</SubType>
     </Compile>
