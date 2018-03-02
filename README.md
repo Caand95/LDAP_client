@@ -3,8 +3,8 @@ Information og guide til at oprette forbindelse mm. blev fundet i en artikel på
 Vores Ldap program er delt op i 2 dele.
 En console del og en gui del, og dette skift kan laves ved at bytte rundt på hvad der er Main og “OldMain”.
 
-#Programmet
-Programmet kører igennem C#'s DirectoryServices LdapConnection der bliver gemt bag vores klasse: Connection
+# Programmet
+Programmet kører igennem C#'s DirectoryServices LdapConnection der bliver gemt bag vores klasse: Connection.
 Når applikationen skal modtage informationer om domænet: brugere, grupper, ou'er 
 og i det hele taget få indlæst hierarkiet, bruger vi klassen Directory og bruger Ldap-klassen
 DirectoryEntry, som jeg finder er bedre til den slags. 
