@@ -9,7 +9,9 @@ namespace LDAP
 {
     public abstract class DirectoryEntity
     {
+        //The parent OrganizationalUnit
         private DirectoryEntity parent;
+        //Properties that defines this object
         private PropertyCollection properties;
 
         public DirectoryEntity Parent { get => parent; }

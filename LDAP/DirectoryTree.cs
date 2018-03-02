@@ -18,7 +18,7 @@ namespace LDAP
             return ou;
         }
 
-        /*Iterates over the whole Active Directory starting from the parent and loops recursively
+        /*Iterates over the whole Active Directory starting from the parent and loops recursively.
             It initializes an OU and adds users/groups/OU*/
         private static OrganizationalUnit GetDirectory(OrganizationalUnit parentEntity, DirectoryEntry parent)
         {
