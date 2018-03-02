@@ -1,0 +1,9 @@
+C:\Users\zbcisand3\Documents\GitHub\LDAP_client\LDAP\bin\Release\LDAP.exe.config
+C:\Users\zbcisand3\Documents\GitHub\LDAP_client\LDAP\bin\Release\LDAP.exe
+C:\Users\zbcisand3\Documents\GitHub\LDAP_client\LDAP\bin\Release\LDAP.pdb
+C:\Users\zbcisand3\Documents\GitHub\LDAP_client\LDAP\obj\Release\LDAP.Browser.resources
+C:\Users\zbcisand3\Documents\GitHub\LDAP_client\LDAP\obj\Release\LDAP.FormConnect.resources
+C:\Users\zbcisand3\Documents\GitHub\LDAP_client\LDAP\obj\Release\LDAP.csproj.GenerateResource.Cache
+C:\Users\zbcisand3\Documents\GitHub\LDAP_client\LDAP\obj\Release\LDAP.csproj.CoreCompileInputs.cache
+C:\Users\zbcisand3\Documents\GitHub\LDAP_client\LDAP\obj\Release\LDAP.exe
+C:\Users\zbcisand3\Documents\GitHub\LDAP_client\LDAP\obj\Release\LDAP.pdb

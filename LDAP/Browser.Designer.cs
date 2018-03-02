@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Browser));
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.listView1 = new System.Windows.Forms.ListView();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
             // button1
@@ -67,9 +70,16 @@
             // 
             // treeView1
             // 
+<<<<<<< HEAD
             this.treeView1.Location = new System.Drawing.Point(12, 33);
             this.treeView1.Margin = new System.Windows.Forms.Padding(2);
+=======
+            this.treeView1.ImageIndex = 0;
+            this.treeView1.ImageList = this.imageList1;
+            this.treeView1.Location = new System.Drawing.Point(16, 41);
+>>>>>>> b8d6a0b716e60c2e987b5dd689b6db8265774a39
             this.treeView1.Name = "treeView1";
+            this.treeView1.SelectedImageIndex = 0;
             this.treeView1.Size = new System.Drawing.Size(187, 533);
             this.treeView1.TabIndex = 5;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -82,7 +92,6 @@
             this.listView1.Size = new System.Drawing.Size(649, 532);
             this.listView1.TabIndex = 6;
             this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // comboBox1
             // 
@@ -99,6 +108,14 @@
             this.comboBox1.Size = new System.Drawing.Size(78, 21);
             this.comboBox1.TabIndex = 7;
             this.comboBox1.Text = "All";
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "ou.png");
+            this.imageList1.Images.SetKeyName(1, "group.png");
+            this.imageList1.Images.SetKeyName(2, "user.png");
             // 
             // Browser
             // 
@@ -126,5 +143,6 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
