@@ -64,7 +64,6 @@
     </Compile>
     <Compile Include="Connection.cs" />
     <Compile Include="DirectoryEntity.cs" />
-<<<<<<< HEAD
     <Compile Include="DirectoryTree.cs" />
     <Compile Include="EditUser.cs">
       <SubType>Form</SubType>
@@ -72,9 +71,7 @@
     <Compile Include="EditUser.Designer.cs">
       <DependentUpon>EditUser.cs</DependentUpon>
     </Compile>
-=======
     <Compile Include="Directory.cs" />
->>>>>>> b8d6a0b716e60c2e987b5dd689b6db8265774a39
     <Compile Include="FormConnect.cs">
       <SubType>Form</SubType>
     </Compile>
