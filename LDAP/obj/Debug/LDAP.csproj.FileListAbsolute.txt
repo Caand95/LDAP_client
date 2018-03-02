@@ -39,3 +39,5 @@ C:\Users\zbcchxol1\source\repos\LDAP_client\LDAP\obj\Debug\LDAP.pdb
 C:\Users\zbcchxol1\source\repos\LDAP_client\LDAP\bin\Debug\LDAP.exe.config
 C:\Users\zbcchxol1\source\repos\LDAP_client\LDAP\bin\Debug\LDAP.exe
 C:\Users\zbcchxol1\source\repos\LDAP_client\LDAP\bin\Debug\LDAP.pdb
+C:\Users\zbcchxol1\source\repos\LDAP_client\LDAP\obj\Debug\LDAP.ConfirmDeleteUser.resources
+C:\Users\zbcchxol1\source\repos\LDAP_client\LDAP\obj\Debug\LDAP.Properties.Resources.resources
