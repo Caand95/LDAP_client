@@ -69,5 +69,19 @@ namespace LDAP
                 throw new Exception("Error modifying user name" + e.Message);
             }
         }
+
+        public void DeleteUser(string distingushedName)
+        {
+            try
+            {
+                DirectoryRequest request = new DeleteRequest(distingushedName);
+                ldapConnection.SendRequest(request);
+            }
+            catch (Exception exception)
+            {
+
+                throw new Exception("Error delting user\n\n" + exception.Message);
+            }
+        }
     }
 }
