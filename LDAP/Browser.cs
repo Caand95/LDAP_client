@@ -129,22 +129,23 @@ namespace LDAP
                 this.listView1.Clear();
                 this.listView1.Columns.Add("Property", 100);
                 this.listView1.Columns.Add("Value", 300);
-                /*
-                AddText("Name", entity.Name);
-                AddText("Path", entity.Path);
-                */
+
                 foreach(string property in entity.Properties.PropertyNames)
                 {
-                    string text = "";
                     object value = entity.Properties[property].Value;
                     if (value.GetType().IsArray)
                     {
                         Array array = (Array)value;
                         for (int i = 0; i < array.Length; i++)
-                            text += array.GetValue(i).ToString() + (i < array.Length - 1 ? "," : "");
+                        {
+                            AddText(property, array.GetValue(i).ToString());
+                        }
                     }
-                    else text = "" + value;
-                    AddText(property, text);
+                    else
+                    {
+                        AddText(property, "" + value);
+
+                    }
                 }
 
             }
