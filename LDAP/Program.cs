@@ -142,7 +142,5 @@ namespace LDAP
                 Output(entry.DistinguishedName);
             }
         }
-
-
     }
 }

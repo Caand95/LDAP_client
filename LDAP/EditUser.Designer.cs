@@ -35,11 +35,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Path = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.FullName = new System.Windows.Forms.TextBox();
+            this.FirstName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.LastName = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -70,7 +72,7 @@
             // 
             // password
             // 
-            this.password.Location = new System.Drawing.Point(12, 108);
+            this.password.Location = new System.Drawing.Point(126, 60);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(100, 20);
             this.password.TabIndex = 4;
@@ -79,7 +81,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 92);
+            this.label3.Location = new System.Drawing.Point(127, 44);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 3;
@@ -101,56 +103,74 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Path";
             // 
-            // FullName
+            // FirstName
             // 
-            this.FullName.Location = new System.Drawing.Point(11, 172);
-            this.FullName.Name = "FullName";
-            this.FullName.Size = new System.Drawing.Size(100, 20);
-            this.FullName.TabIndex = 8;
+            this.FirstName.Location = new System.Drawing.Point(12, 104);
+            this.FirstName.Name = "FirstName";
+            this.FirstName.Size = new System.Drawing.Size(100, 20);
+            this.FirstName.TabIndex = 8;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 156);
+            this.label5.Location = new System.Drawing.Point(12, 88);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.Size = new System.Drawing.Size(55, 13);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Name";
+            this.label5.Text = "First name";
             // 
             // treeView1
             // 
-            this.treeView1.Location = new System.Drawing.Point(130, 29);
+            this.treeView1.Location = new System.Drawing.Point(248, 60);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(142, 178);
+            this.treeView1.Size = new System.Drawing.Size(142, 214);
             this.treeView1.TabIndex = 9;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(130, 13);
+            this.label6.Location = new System.Drawing.Point(246, 44);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 13);
+            this.label6.Size = new System.Drawing.Size(0, 13);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Member of";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(130, 213);
+            this.button1.Location = new System.Drawing.Point(249, 280);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(141, 36);
             this.button1.TabIndex = 11;
             this.button1.Text = "Save changes";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // LastName
+            // 
+            this.LastName.Location = new System.Drawing.Point(126, 104);
+            this.LastName.Name = "LastName";
+            this.LastName.Size = new System.Drawing.Size(100, 20);
+            this.LastName.TabIndex = 13;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(126, 88);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Last name";
             // 
             // EditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(402, 328);
+            this.Controls.Add(this.LastName);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.treeView1);
-            this.Controls.Add(this.FullName);
+            this.Controls.Add(this.FirstName);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Path);
             this.Controls.Add(this.label4);
@@ -175,10 +195,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Path;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox FullName;
+        private System.Windows.Forms.TextBox FirstName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox LastName;
+        private System.Windows.Forms.Label label7;
     }
 }

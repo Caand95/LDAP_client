@@ -52,5 +52,22 @@ namespace LDAP
             }
             return result;
         }
+
+        public void ModifyEntryValue(string distingushedName, string newValue, string fieldName)
+        {
+            try
+            {
+                DirectoryAttributeModification attributeModification = new DirectoryAttributeModification();
+                attributeModification.Operation = DirectoryAttributeOperation.Replace;
+                attributeModification.Name = fieldName;
+                attributeModification.Add(newValue);
+                ModifyRequest modifyRequest = new ModifyRequest(distingushedName, attributeModification);
+                ldapConnection.SendRequest(modifyRequest);
+            }
+            catch(Exception e)
+            {
+                throw new Exception("Error modifying user name" + e.Message);
+            }
+        }
     }
 }

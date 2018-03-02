@@ -12,16 +12,47 @@ namespace LDAP
 {
     public partial class EditUser : Form
     {
-        public EditUser(User user)
+
+        Connection connection;
+        User user;
+
+        public EditUser(User user, Connection connection)
         {
+            this.connection = connection;
+            this.user = user;
+
             InitializeComponent();
-            username.Text = user.Properties["sAMAccountName"].ToString();
+            username.Text = user.Properties["sAMAccountName"].Value.ToString();
+            password.Text = "********";
             Path.Text = user.Path;
-            FullName.Text = user.Name;
-            foreach(Group group in user.Groups)
+            FirstName.Text = user.Properties["givenName"].Value.ToString();
+            LastName.Text = user.Properties["sn"].Value.ToString();
+
+            if (user.Properties["memberOf"].Count > 0)
             {
-                treeView1.Nodes.Add(group.ToString());
+                foreach (string memberOf in user.Properties["memberOf"])
+                {
+                    treeView1.Nodes.Add(memberOf);
+                } 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                connection.ModifyEntryValue(user.Properties["distinguishedName"].Value.ToString(), username.Text, "sAMAccountName");
+                connection.ModifyEntryValue(user.Properties["distinguishedName"].Value.ToString(), FirstName.Text, "givenName");
+                connection.ModifyEntryValue(user.Properties["distinguishedName"].Value.ToString(), LastName.Text, "sn");
+                //connection.ModifyEntryValue(user.Properties["distinguishedName"].Value.ToString(), FirstName.Text + " " + username.Text + ". " + LastName.Text, "displayName");
+                //connection.ModifyEntryValue(user.Properties["distinguishedName"].Value.ToString(), FirstName.Text + " " + username.Text + ". " + LastName.Text, "cn");
+                //connection.ModifyEntryValue(user.Properties["distinguishedName"].Value.ToString(), FirstName.Text + " " + username.Text + ". " + LastName.Text, "name");
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error editing user\n\n" + error.Message);
+            }
+            MessageBox.Show("Done editing user");
         }
     }
 }

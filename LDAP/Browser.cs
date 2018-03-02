@@ -165,7 +165,17 @@ namespace LDAP
 
         private void EditUser(object sender, TreeNodeMouseClickEventArgs treeNodeMouseClickEventArgs)
         {
-            new Thread(() => { Application.Run(new EditUser((User)treeNodeMouseClickEventArgs.Node.Tag)); }).Start();
+            new Thread(() =>
+            {
+                try
+                {
+                    Application.Run(new EditUser((User)treeNodeMouseClickEventArgs.Node.Tag, connection));
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Error cannot open that type \n" + e.Message);
+                }
+            }).Start();
         }
     }
 }
